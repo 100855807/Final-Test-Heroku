@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Fish Species</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" step="0.0001" name="weight" placeholder="Wight of the fish (usually between 0.1 and 1700)" required="required" />
+        <input type="number" step="0.0001" name="lenght1" placeholder="Vertical length of fish (usually between 5 and 70)" required="required" />
+        <input type="number" step="0.0001" name="lenght2" placeholder="Diagonal length of fish (usually between 5 and 75)" required="required" />
+        <input type="number" step="0.0001" name="lenght3" placeholder="Cross length of fish (usually between 5 and 75)" required="required" />
+        <input type="number" step="0.0001" name="height" placeholder="Height of fish (usually between 0.1 and 25)" required="required" />
+		<input type="number" step="0.0001" name="width" placeholder="Width of fish (usually between 0.1 and 15)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
